@@ -11,10 +11,10 @@ after_Success:
   - docker build -t maxbop01/multi-nginx ./nginx
   - docker build -t maxbop01/multi-server ./server
   - docker build -t maxbop01/multi-worker ./worker
-  # log in in docker cli
+  # log in in docker cli x
   - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
   # take those images  and push them on docker hub
   - docker push maxbop01/multi-client  
   - docker push  maxbop01/multi-nginx  
   - docker push  maxbop01/multi-server  
-  - docker push  maxbop01/multi-worker  
+  - docker push  maxbop01/multi-worker 
