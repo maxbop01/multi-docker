@@ -2,19 +2,19 @@ sudo: required
 services: 
   - docker
 befor_install:
-  - docker build -t mf186006/react-test  -f ./client/Dockerfile.dev ./client
+  - docker build -t maxbop01/react-test  -f ./client/Dockerfile.dev ./client
 script:
-  - docker run -e CI=true mf186006/react-test npm test
+  - docker run -e CI=true maxbop01/react-test npm test
 
 after_Success:
-  - docker build -t mf186006/multi-client ./client
-  - docker build -t mf186006/multi-nginx ./nginx
-  - docker build -t mf186006/multi-server ./server
-  - docker build -t mf186006/multi-worker ./worker
+  - docker build -t maxbop01/multi-client ./client
+  - docker build -t maxbop01/multi-nginx ./nginx
+  - docker build -t maxbop01/multi-server ./server
+  - docker build -t maxbop01/multi-worker ./worker
   # log in in docker cli
   - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
   # take those images  and push them on docker hub
-  - docker push mf186006/multi-client  
-  - docker push  mf186006/multi-nginx  
-  - docker push  mf186006/multi-server  
-  - docker push  mf186006/multi-worker  
+  - docker push maxbop01/multi-client  
+  - docker push  maxbop01/multi-nginx  
+  - docker push  maxbop01/multi-server  
+  - docker push  maxbop01/multi-worker  
